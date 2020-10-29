@@ -1,5 +1,5 @@
-import upperFirst from './upperFirst.js'
-import toString from './toString.js'
+const upperFirst = require('./upperFirst.js')
+const toString = require('./toString.js')
 
 /**
  * Converts the first character of `string` to upper case and the remaining
@@ -16,5 +16,19 @@ import toString from './toString.js'
  */
 const capitalize = (string) => upperFirst(toString(string).toLowerCase())
 
+const capitalizeString = (value = '', capitalizeLowSizeWord = true, lowSize = 2) => {
+  if (typeof value !== 'string') throw new Error('Required to be String')
+  const array = value.split(' ')
+    return array.reduce((acc, cur) => {
+        if (!capitalizeLowSizeWord && cur.length < lowSize) return acc.concat(cur)
+          return acc.concat([...cur].reduce((ac, curr, index) => {
+            if (index === 0) return ac.concat(curr.toUpperCase())
+            return  ac.concat(curr.toLowerCase())
+            }, ' '))
+          }, '')
+}
 
-export default capitalize
+
+
+module.export = {capitalize, capitalizeString}
+
