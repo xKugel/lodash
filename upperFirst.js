@@ -1,5 +1,5 @@
-import createCaseFirst from './.internal/createCaseFirst.js'
-
+//import {createCaseFirst} from './.internal/createCaseFirst.js'
+const createCaseFirst = require('./.internal/createCaseFirst.js')
 /**
  * Converts the first character of `string` to upper case.
  *
